@@ -29,6 +29,24 @@ namespace API.Controllers
             }
             return Ok(user);
         }
+
+        [HttpPost]
+        public async Task<ActionResult<AppUser>> CreateUser(AppUser user)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            dbContext.Users.Add(user);
+            await dbContext.SaveChangesAsync();
+            return CreatedAtAction(nameof(GetUsersById), new { id = user.Id }, user);
+        }
+
+
+        
+
+        
         
     }
 }
