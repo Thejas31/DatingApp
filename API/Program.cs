@@ -1,5 +1,10 @@
 using API.Data;
+using API.Interfaces;
+using API.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Build.Framework;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +20,22 @@ builder.Services.AddDbContext<AppDbContext>(op =>
    op.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 }); 
 builder.Services.AddCors();
+builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        var key = builder.Configuration["TokenKey"];
+        options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+        {
+            
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(key)),
+            ValidateIssuer = false,
+            ValidateAudience = false
+        };
+    });
+
+
 
 var app = builder.Build();
 
@@ -27,6 +48,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.MapControllers();
 
+app.UseAuthentication();
+app.UseAuthorization();
 
 //configure the HTTP request pipeline.
 app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200","http://localhost:4200"));

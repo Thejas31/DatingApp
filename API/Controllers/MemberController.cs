@@ -1,5 +1,6 @@
 using API.Data;
 using API.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,7 @@ namespace API.Controllers
     {
 
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<List<AppUser>>> GetUsers()
         {
             var users = await dbContext.Users.ToListAsync();
