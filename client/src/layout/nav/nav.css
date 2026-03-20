@@ -1,0 +1,19 @@
+header input {
+  position: relative !important;
+  pointer-events: auto !important;
+  user-select: text !important;
+}
+
+header nav {
+  pointer-events: auto !important;
+}
+
+header nav a {
+  pointer-events: auto !important;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}

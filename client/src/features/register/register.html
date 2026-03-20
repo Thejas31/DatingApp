@@ -1,0 +1,13 @@
+<div class="card bg-linear-to-r from-primary to-black mx-50 text-white flex flex-col mt-20 text-center my-auto items-center align-middle">
+    <div class="card-title mt-5"><h1>REGISTRATION</h1></div>
+    <div class="card-body">
+        <form #registerForm="ngForm" (ngSubmit)="register()">
+            <input type="text" name="Username" placeholder="Username" [(ngModel)]="cred.displayName" class="bg-white input input-bordered w-full max-w-xl mb-5 text-black" />
+            <input  type="text" name="Email" placeholder="Email" [(ngModel)]="cred.email"class="bg-white input input-bordered w-full max-w-xl mb-5 text-black" />
+            <input  type="password" name="Password" placeholder="Password" [(ngModel)]="cred.password" class="bg-white input input-bordered w-full max-w-xl mb-5 text-black" />
+        </form>
+        <div class="card-actions justify-end">
+            <button class="btn btn-primary" (click)="register()">Register</button>
+            <button class="btn btn-secondary" (click)="cancel()">Cancel</button>
+    </div>
+</div>

@@ -13,7 +13,7 @@ namespace API.Controllers
     {
 
         [HttpGet]
-        [Authorize]
+        // [Authorize]
         public async Task<ActionResult<List<AppUser>>> GetUsers()
         {
             var users = await dbContext.Users.ToListAsync();
