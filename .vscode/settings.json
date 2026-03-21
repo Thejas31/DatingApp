@@ -1,4 +1,40 @@
 {
-    "java.dependency.syncWithFolderExplorer": false,
-    "java.project.explorer.showNonJavaResources": false
+  "java.dependency.syncWithFolderExplorer": false,
+  "java.project.explorer.showNonJavaResources": false,
+  "editor.suggest.showSnippets": true,
+  "editor.suggest.showWords": true,
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": true,
+    "strings": true
+  },
+  "editor.parameterHints.enabled": true,
+  "editor.suggestOnTriggerCharacters": true,
+  "editor.acceptSuggestionOnCommitCharacter": true,
+  "editor.acceptSuggestionOnEnter": "on",
+  "[csharp]": {
+    "editor.suggest.showSnippets": true,
+    "editor.quickSuggestions": {
+      "comments": "on",
+      "strings": "on",
+      "other": "on"
+    },
+    "editor.suggest.showStatusBar": true
+  },
+  "[typescript]": {
+    "editor.suggest.showSnippets": true,
+    "editor.quickSuggestions": {
+      "comments": "on",
+      "strings": "on",
+      "other": "on"
+    }
+  },
+  "[json]": {
+    "editor.suggest.showSnippets": true
+  },
+  "omnisharp.enableEditorConfigSupport": true,
+  "omnisharp.enableRoslynAnalyzers": true,
+  "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
+  "typescript.suggest.autoImports": true,
+  "typescript.preferences.includePackageJsonAutoImports": "on"
 }

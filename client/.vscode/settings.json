@@ -1,0 +1,18 @@
+{
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": true,
+    "strings": true
+  },
+  "[typescript]": {
+    "editor.suggest.showSnippets": true,
+    "editor.quickSuggestions": true,
+    "editor.suggest.showStatusBar": true
+  },
+  "[html]": {
+    "editor.suggest.showSnippets": true
+  },
+  "typescript.suggest.autoImports": true,
+  "typescript.preferences.includePackageJsonAutoImports": "on",
+  "angular.enable-strict-mode-prompt": false
+}
