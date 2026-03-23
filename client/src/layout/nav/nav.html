@@ -1,5 +1,5 @@
 <header
-  class="items-center align-middle flex bg-linear-to-r p-3 fixed w-full top-0 from-primary to-black text-white"
+  class="items-center align-middle flex bg-linear-to-r p-3 fixed w-full top-0 from-black to-primary text-white"
 >
   <a
     class="flex items-center align-middle"
@@ -29,8 +29,7 @@
             routerLink="/members"
             routerLinkActive="text-accent"
             class="cursor-pointer block py-2 px-1"
-            >Members</a
-          >
+            >Matches</a >
         </li>
         <li>
           <a
@@ -52,10 +51,11 @@
     </ul>
   </nav>
 
-  @if (loggedIn()) {
+  @if(loggedIn()) {  
     <div class="dropdown ml-auto dropdown-end mr-8">
       <div tabindex="0" role="button" class="flex cursor-pointer items-center align-middle gap-2">
-        <svg
+        <!-- @if (user?.imageUrl == null){
+          <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
@@ -66,14 +66,17 @@
             d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
             clip-rule="evenodd"
           />
-        </svg>
+        </svg> -->
+        <!-- }else{ -->
+          <img [src]="user?.imageUrl || '/user.png'" class="rounded-2xl size-10">
+        <!-- } -->
         <h3>{{ loggedIn()?.displayName || loggedIn()?.username || 'User' }}</h3>
       </div>
       <ul
         tabindex="-1"
         class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
       >
-        <li><a>Edit User</a></li>
+        <!-- <li><a>Edit User</a></li> -->
         <li><a (click)="logout()">Log Out</a></li>
       </ul>
     </div>

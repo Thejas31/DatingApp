@@ -1,7 +1,7 @@
 import { Component, inject, input, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { registerCreds, user } from '../../types/user';
-import { AccountServive } from '../../core/account-servive';
+import { AccountService } from '../../core/account-service';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +13,7 @@ export class Register {
   // membersFromHome = input.required<user[]>();    [membersFromHome]="membersFromApp" put this in home.html and remove this line from register.ts
   protected cred = {} as registerCreds; 
   cancelRegister = output<boolean>();
-  private accountService = inject(AccountServive);
+  private accountService = inject(AccountService);
 
   register(){
     return this.accountService.register(this.cred).subscribe({

@@ -1,0 +1,13 @@
+<div routerLink="/members/{{member()?.id}}">
+    <div class="card">
+        <div class="card-body hover:bg-gradient-to-t from-black via-black/75 to-black/0 z-50 cursor-pointer ">
+            <img src="{{member()?.imageUrl || '/user.png'}}" alt="" class="rounded-lg size-40">
+        </div>
+        <div class="card-actions bg-gradient-to-t from-black via-black/75 to-black/0 z-50 absolute bottom-0 w-full px-3 py-1 ">
+            <div class="flex flex-col mx-3 my-2 rounder-b-lg textarea-md">
+                <span>{{member()?.displayName}} {{member().dateOfBirth | age}}</span>
+                <span>{{member()?.city}}</span>
+            </div>
+        </div>
+    </div>
+</div>

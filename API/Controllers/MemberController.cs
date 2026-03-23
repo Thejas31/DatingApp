@@ -10,6 +10,7 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class MemberController(IMemberRepository memberRepository, AppDbContext dbContext) : ControllerBase
     {
 
@@ -20,7 +21,7 @@ namespace API.Controllers
             return Ok(await memberRepository.GetMembersAsync());
         }
 
-        [Authorize]
+        // [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<Member>> GetUsersById(string id)
         {
@@ -44,6 +45,13 @@ namespace API.Controllers
             dbContext.Users.Add(user);
             await dbContext.SaveChangesAsync();
             return CreatedAtAction(nameof(GetUsersById), new { id = user.Id }, user);
+        }
+
+        [HttpGet("{memberId}/photos")]
+        // [Authorize]
+        public async Task<ActionResult<Photo>> GetPhotos(string memberId)
+        {
+            return Ok(await memberRepository.GetPhotosForMemberAsync(memberId));
         }
 
 

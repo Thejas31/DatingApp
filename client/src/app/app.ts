@@ -5,7 +5,7 @@ import { lastValueFrom } from 'rxjs';
 import { Nav } from "../layout/nav/nav";
 import { Home } from "../features/home/home";
 import { user } from '../types/user';
-import { AccountServive } from '../core/account-servive';
+import { AccountService } from '../core/account-service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +16,7 @@ import { AccountServive } from '../core/account-servive';
 export class App implements OnInit {
   protected routerOutlet = inject(Router);
   private http = inject(HttpClient);
-  private accountService = inject(AccountServive);
+  private accountService = inject(AccountService);
   protected title = 'Dating App';
   protected members = signal<user[]>([]);
 router: any;

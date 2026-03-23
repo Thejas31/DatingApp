@@ -1,1 +1,6 @@
-<p>member-list works!</p>
+<div class="grid grid-cols-4 text-2xl pt-10 text-center items-center align-middle">
+    @for (member of members$ | async; track member.id) {
+        <app-member-card [member] = "member" />
+    }
+</div>
+

@@ -6,7 +6,7 @@ import { tap } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class AccountServive {
+export class AccountService {
   private http = inject(HttpClient);
   baseUrl = 'https://localhost:5001/api/';
   currentUser = signal<user | null>(null);

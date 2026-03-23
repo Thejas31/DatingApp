@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AccountServive } from '../../core/account-servive';
+import { AccountService } from '../../core/account-service';
 import { Router, RouterLink, RouterLinkActive } from "@angular/router";
 import { ToastService } from '../../core/toast-service';
 
@@ -13,9 +13,10 @@ import { ToastService } from '../../core/toast-service';
 export class Nav {
   protected router = inject(Router);
   protected cred : any = {}
-  protected accountservice = inject(AccountServive);
+  protected accountservice = inject(AccountService);
   protected loggedIn = this.accountservice.currentUser;
   private toast = inject(ToastService);
+user: any;
 
   login(){
     this.accountservice.login(this.cred).subscribe({
