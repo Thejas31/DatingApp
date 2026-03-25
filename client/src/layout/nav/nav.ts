@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { AccountService } from '../../core/account-service';
 import { Router, RouterLink, RouterLinkActive } from "@angular/router";
 import { ToastService } from '../../core/toast-service';
+import { BusyService } from '../../core/busy-service';
 
 @Component({
   selector: 'app-nav',
@@ -16,6 +17,7 @@ export class Nav {
   protected accountservice = inject(AccountService);
   protected loggedIn = this.accountservice.currentUser;
   private toast = inject(ToastService);
+  protected busyService = inject(BusyService)
 user: any;
 
   login(){

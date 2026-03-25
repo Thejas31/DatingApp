@@ -32,6 +32,7 @@ export class AccountService {
   }
 
   setCurrentUser(user: user) {
+    // const normalizedUser = this.normalizeUser(user);
     this.currentUser.set(user);
     localStorage.setItem('user', JSON.stringify(user));
   }
@@ -40,11 +41,27 @@ export class AccountService {
     localStorage.removeItem('user');
   }
 
-  initializeUser() {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      const user = JSON.parse(storedUser);
-      this.currentUser.set(user);
-    }
-  }
+  // initializeUser() {
+  //   const storedUser = localStorage.getItem('user');
+  //   if (storedUser) {
+  //     const user = JSON.parse(storedUser);
+  //     this.currentUser.set(this.normalizeUser(user));
+  //   }
+  // }
+
+
+  // private getTokenPayload(token?: string): any | null {
+  //   if (!token) return null;
+
+  //   try {
+  //     const payload = token.split('.')[1];
+  //     if (!payload) return null;
+
+  //     const normalized = payload.replace(/-/g, '+').replace(/_/g, '/');
+  //     const padded = normalized.padEnd(normalized.length + ((4 - normalized.length % 4) % 4), '=');
+  //     return JSON.parse(atob(padded));
+  //   } catch {
+  //     return null;
+  //   }
+  // }
 }

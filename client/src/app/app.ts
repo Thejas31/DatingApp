@@ -22,7 +22,7 @@ export class App implements OnInit {
 router: any;
 
   async ngOnInit(): Promise<void> {
-    this.accountService.initializeUser();
+    // this.accountService.initializeUser();
     this.members.set(await this.getMembers())
   }
 

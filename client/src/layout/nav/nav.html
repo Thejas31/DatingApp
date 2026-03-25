@@ -1,5 +1,5 @@
 <header
-  class="items-center align-middle flex bg-linear-to-r p-3 fixed w-full top-0 from-black to-primary text-white"
+  class="items-center align-middle z-50 flex bg-linear-to-r p-3 fixed w-full top-0 from-black to-primary text-white"
 >
   <a
     class="flex items-center align-middle"
@@ -50,6 +50,10 @@
       }
     </ul>
   </nav>
+
+  @if(busyService.busyRequestCount() > 0){
+    <span class="loading loading-spinner text-accent"></span>
+  }
 
   @if(loggedIn()) {  
     <div class="dropdown ml-auto dropdown-end mr-8">

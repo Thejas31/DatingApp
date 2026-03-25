@@ -1,4 +1,4 @@
-@if(member(); as member) {
+@if(memberService.member(); as member) {
     <div class="flex flex-col gap-3">
          <div class="flex gap-3">
             <span class="font-semibold">Member Since : </span>
@@ -9,8 +9,54 @@
             <span>{{member.lastActive | date: 'dd MMM yyyy h:mm a'}}</span>
         </div>
         <div class="">
-            <h4 class="text-2xl">About {{member.displayName}}</h4>
-            <p>{{member.description}}</p>
+            @if(memberService.editMode()){
+                <h1 class="text-4xl">Edit Profile</h1>
+                <form #editForm="ngForm" (ngSubmit)="updateProfile()" class="flex flex-col w-100 gap-7 mt-6 p-4 border-4 rounded-2xl">
+                    <label class="floating-label border-2 p-2 rounded-2xl ">
+                        <span class="font-medium">Display Name</span>
+                        <input type="text" 
+                        name="displayName" 
+                        [(ngModel)] = "editableMember.displayName"
+                        placeholder="Display Name" class="w-full">
+                    </label>
+                    <label class="floating-label border-2 p-2 rounded-2xl">
+                        <span>Description</span>
+                        <textarea type="text" 
+                        name="description" 
+                        [(ngModel)] = "editableMember.description"
+                        placeholder="Display Name"class="w-full"></textarea>
+
+                    </label>
+
+                    <label class="floating-label border-2 p-2 rounded-2xl ">
+                        <span class="font-medium">City</span>
+                        <input type="text" 
+                        name="city" 
+                        [(ngModel)] = "editableMember.city"
+                        placeholder="Display Name" class="w-full">
+                    </label><label class="floating-label border-2 p-2 rounded-2xl ">
+                        <span class="font-medium">Country</span>
+                        <input type="text" 
+                        name="country" 
+                        [(ngModel)] = "editableMember.country"
+                        placeholder="Display Name" class="w-full">
+                    </label>
+
+                    <div class="flex self-end">
+                        <button
+                        [disabled]="!editForm.dirty" 
+                        type="submit" 
+                        class="btn btn-success"> SUBMIT </button>
+                    </div>
+                </form>
+
+
+                
+            }
+            @else{
+                <h4 class="text-2xl">About {{member.displayName}}</h4>
+                <p>{{member.description}}</p>
+            }
         </div>
     </div>
 }

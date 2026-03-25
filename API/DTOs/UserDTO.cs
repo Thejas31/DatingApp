@@ -4,10 +4,9 @@ namespace API.DTOs;
 
 public class UserDTO
 {
-    public required string username { get; set; }
+    public required string id { get; set; }
+    public required string displayName { get; set; }
     public required string email { get; set; }
     public required string token { get; set; }
-    public string? url { get; set; }
-
-
+    public string? imageUrl { get; set; }
 }
